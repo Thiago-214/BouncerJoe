@@ -15,19 +15,11 @@ const client = new Client ({
 
 new CommandHandler({
     client,
-    eventsPath: path.join(--path.dirname,'events'),
+    eventsPath: path.join(__dirname,'events'),
+    commandsPath: path.join(__dirname,'commands')
+    
 })
 
-//Pronto
-client.on('ready', (c) => {
-    console.log(`✅ ${c.user.username} is online`)
-})
 
-//Responder salve
-client.on('messageCreate',(msg,) =>{
-    if (msg.content === 'salve' || msg.content === 'Salve' ){
-        msg.reply(`Salve meu cria ${msg.author.globalName}`)
-    };
-} )
 
 client.login(process.env.TOKEN);
